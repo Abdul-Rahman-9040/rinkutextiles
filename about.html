@@ -26,6 +26,8 @@
 <body>
     <section class="header">
         <nav class="navbar navbar-expand-lg navbar-light">
+          <a class="navbar-brand" href="#" style="text-decoration: none;font-size: 36px;font-weight: bold;color: blue;">Rinku Textiles</a>
+
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
           </button>
@@ -36,10 +38,6 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="about.html">About Us</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact Us</a>
               </li>
             </ul>
       
@@ -93,6 +91,54 @@
         </div>
       </div>
     </div>
+    <div class="fabs" onclick="toggleBtn()">
+      <div class="action">
+        <i class="fas fa-phone" id="add"></i>
+        <i class="fas fa-times" id="remove" style="display: none"></i>
+      </div>
+
+      <div class="btns">
+        <a href="#" class="btn" style="background: #3b5999"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+        <a href="#" class="btn" style="background: #55acee"
+          ><i class="fab fa-twitter"></i
+        ></a>
+        <a href="#" class="btn" style="background: #25D366"
+          ><i class="fab fa-whatsapp"></i
+        ></a>
+        <a href="#" class="btn" style="background:#e4405f"
+          ><i class="fab fa-instagram"></i
+        ></a>
+      </div>
+    </div>
+  </body>
+  <script>
+    function toggleBtn() {
+      const Btns = document.querySelector(".btns");
+      const add = document.getElementById("add");
+      const remove = document.getElementById("remove");
+      const btn = document.querySelector(".btns").querySelectorAll("a");
+      Btns.classList.toggle("open");
+      if (Btns.classList.contains("open")) {
+        remove.style.display = "block";
+        add.style.display = "none";
+        btn.forEach((e, i) => {
+          setTimeout(() => {
+            bottom = 40 * i;
+            e.style.bottom = bottom + "px";
+            console.log(e);
+          }, 100 * i);
+        });
+      } else {
+        add.style.display = "block";
+        remove.style.display = "none";
+        btn.forEach((e, i) => {
+          e.style.bottom = "0px";
+        });
+      }
+    }
+  </script>
     </section>
 
     <section class="footer">
